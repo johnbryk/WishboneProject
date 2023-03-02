@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import PreResponse from './margaret/PreResponse.js'
+import PostResponse from './margaret/PostResponse.js'
+import './margaret/App.css'
 
 
 const App = () => {
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState({})
   const [show, setShow] = useState(false)
   const email = "name@missporters.org"
-  const url = 'http://localhost:3001/notes'
+  const url = '/api/data'
 
   useEffect(() => {
     axios
@@ -28,42 +31,30 @@ const App = () => {
   }
 
 if(show){
-  console.log(notes[0])
+  console.log(notes)
   return (
    
     <div className="App">
-      <h1 >DAISY WISHES</h1>
-      <p><span>{notes.length ? notes[0].question:null}</span></p>
-      <div class = "images">
-      <div><img src="Octocat.png" /></div> 
-      <p>{(notes[0].voting1*100/(notes.length ? notes[0].voting1+notes[0].voting2:null)).toFixed(0)}</p>
-      <div><img  src="Octocat.png" /></div> 
-      <p>{(notes[0].voting2*100/(notes.length ? notes[0].voting1+notes[0].voting2:null)).toFixed(0)}</p>
-
-      </div>
-    
-        <button >{notes[0].caption1}</button>
-        <button >{notes[0].caption2}</button>
-
-       
+      <PostResponse
+        question={notes.question}
+        percent1={(notes.voting1*100/(notes.voting1+notes.voting2)).toFixed(0)}
+        percent2={(notes.voting2*100/(notes.voting1+notes.voting2)).toFixed(0)}
+        caption1={notes.caption1}
+        caption2={notes.caption2}
+      />
     </div>
 
   )
 } else{
     return (
       <div className="App">
-        <h1 >DAISY WISHES</h1>
-        <p><span>{notes.length ? notes[0].question : null}</span></p>
-        <div class = "images">
-        <div><img src="Octocat.png" /></div> 
-        <div><img  src="Octocat.png" /></div> 
-  
-        </div>
-      
-          <button onClick = {onClick(0)}>{notes.length ? notes[0].caption1 : null}</button>
-          <button onClick = {onClick(1)}>{notes.length ? notes[0].caption2: null}</button>
-
-         
+        <PreResponse
+          question={notes.question}
+          callback1={() => {onClick(0)}}
+          callback2={() => {onClick(1)}}
+          caption1={notes.caption1}
+          caption2={notes.caption2}
+        />
       </div>
   
     )

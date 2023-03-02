@@ -6,7 +6,7 @@ let data = []
 fs.readFile(
   './data.json',
   (err, res) => {
-    data = JSON.parse(res).notes
+    data = JSON.parse(res)
   }
 )
 
@@ -15,7 +15,7 @@ app.use(express.static('build'))
 app.use(express.json())
 app.get("/api/data", (req, res) => {
   const date = new Date().toISOString().substring(0, 10)
-  res.json(data.find(data => data.id === date))
+  res.json(data.find(item => item.id === date))
 })
 
 app.post("/api/data", (req, res) => {

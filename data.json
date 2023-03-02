@@ -11,11 +11,11 @@
     "id": "2023-03-01"
   },
   {
-    "question": "What do you want to eat?",
-    "caption1": "one",
-    "caption2": "two",
-    "voting2": 7,
-    "voting1": 9,
+    "question": "Which Vacation Would You Pick?",
+    "caption1": "Beach",
+    "caption2": "City",
+    "voting2": 0,
+    "voting1": 0,
     "img1": "2023-03-02-0.png",
     "img2": "2023-03-02-1.png",
     "users": [],

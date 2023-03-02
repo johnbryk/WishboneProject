@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import GoogleLogin from './GoogleLogin.js';
+import App from './App.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ;

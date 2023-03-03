@@ -21,4 +21,15 @@
     "users": [],
     "id": "2023-03-02"
   }
+  {
+    "question": "Potato or Tomato",
+    "caption1": "Potato",
+    "caption2": "Tomato",
+    "voting2": 0,
+    "voting1": 0,
+    "img1": "2023-03-03-0.png",
+    "img2": "2023-03-03-1.png",
+    "users": [],
+    "id": "2023-03-03"
+  }
 ]
